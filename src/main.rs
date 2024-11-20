@@ -96,7 +96,7 @@ async fn print(
         let resp_read = resp.read().await;
         if !resp_read.is_empty() {
             println!("Upload Success:");
-            resp.write().await.iter().for_each(|res| {
+            resp_read.iter().for_each(|res| {
                 println!("{}", res.upload_file_url());
             });
         }
