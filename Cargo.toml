@@ -1,6 +1,6 @@
 [package]
 name = "pic_fly"
-description = "A simple cheverto image upload tool."
+description = "A simple chevereto image upload tool."
 version = "0.1.0"
 edition = "2021"
 

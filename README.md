@@ -1,11 +1,11 @@
 ### PF
 
-A simple cheverto image upload tool.
+A simple chevereto image upload tool.
 
 ~~~bash
 $ pf.exe --help
 
-A simple cheverto image upload tool.
+A simple chevereto image upload tool.
 
 Usage: pf.exe [OPTIONS] <KEY> <URL> [FILES]...
 
