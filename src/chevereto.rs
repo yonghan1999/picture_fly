@@ -35,122 +35,7 @@ pub struct Success {
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Image {
-    pub name: String,
-    pub extension: String,
-    pub size: String,
-    pub width: String,
-    pub height: String,
-    pub date: String,
-    #[serde(rename = "date_gmt")]
-    pub date_gmt: String,
-    pub title: String,
-    pub description: Value,
-    pub nsfw: String,
-    #[serde(rename = "storage_mode")]
-    pub storage_mode: String,
-    pub md5: String,
-    #[serde(rename = "source_md5")]
-    pub source_md5: Value,
-    #[serde(rename = "original_filename")]
-    pub original_filename: String,
-    #[serde(rename = "original_exifdata")]
-    pub original_exifdata: Value,
-    pub views: String,
-    #[serde(rename = "category_id")]
-    pub category_id: Value,
-    pub chain: String,
-    #[serde(rename = "thumb_size")]
-    pub thumb_size: String,
-    #[serde(rename = "medium_size")]
-    pub medium_size: String,
-    #[serde(rename = "expiration_date_gmt")]
-    pub expiration_date_gmt: Value,
-    pub likes: String,
-    #[serde(rename = "is_animated")]
-    pub is_animated: String,
-    #[serde(rename = "is_approved")]
-    pub is_approved: String,
-    pub file: File,
-    #[serde(rename = "id_encoded")]
-    pub id_encoded: String,
-    pub filename: String,
-    pub mime: String,
     pub url: String,
-    #[serde(rename = "url_viewer")]
-    pub url_viewer: String,
-    #[serde(rename = "url_short")]
-    pub url_short: String,
-    pub image: Image2,
-    pub thumb: Thumb,
-    pub medium: Medium,
-    #[serde(rename = "size_formatted")]
-    pub size_formatted: String,
-    #[serde(rename = "display_url")]
-    pub display_url: String,
-    #[serde(rename = "display_width")]
-    pub display_width: String,
-    #[serde(rename = "display_height")]
-    pub display_height: i64,
-    #[serde(rename = "views_label")]
-    pub views_label: String,
-    #[serde(rename = "likes_label")]
-    pub likes_label: String,
-    #[serde(rename = "how_long_ago")]
-    pub how_long_ago: String,
-    #[serde(rename = "date_fixed_peer")]
-    pub date_fixed_peer: String,
-    #[serde(rename = "title_truncated")]
-    pub title_truncated: String,
-    #[serde(rename = "title_truncated_html")]
-    pub title_truncated_html: String,
-    #[serde(rename = "is_use_loader")]
-    pub is_use_loader: bool,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct File {
-    pub resource: Resource,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct Resource {
-    #[serde(rename = "type")]
-    pub type_field: String,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct Image2 {
-    pub filename: String,
-    pub name: String,
-    pub mime: String,
-    pub extension: String,
-    pub url: String,
-    pub size: String,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct Thumb {
-    pub filename: String,
-    pub name: String,
-    pub mime: String,
-    pub extension: String,
-    pub url: String,
-    pub size: String,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct Medium {
-    pub filename: String,
-    pub name: String,
-    pub mime: String,
-    pub extension: String,
-    pub url: String,
-    pub size: String,
 }
 
 /// url: chevereto upload url
@@ -226,7 +111,7 @@ pub async fn upload_image_cheverto(
         let image_url = Url::parse(&image).unwrap();
         upload_remote_image_chevereto(&upload_url, &image_url).await
     } else {
-        let mut input_image_path = Path::new(&image);
+        let input_image_path = Path::new(&image);
         if !input_image_path.exists() || !input_image_path.is_file() {
             return Err(UploadError::new(&format!("{} is not exits", &image)));
         }
