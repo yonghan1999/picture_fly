@@ -12,7 +12,7 @@ Usage: pf.exe [OPTIONS] <KEY> <URL> [FILES]...
 Arguments:
   <KEY>       chevereto api key
   <URL>       your chevereto upload url e.g. https://images.hanblog.fun/api/1/upload/
-  [FILES]...  image file path
+  [FILES]...  image file path. e.g. https://image.hanblog.fun/images/2024/11/20/test.jpg OR local file path
 
 Options:
   -f, --force
