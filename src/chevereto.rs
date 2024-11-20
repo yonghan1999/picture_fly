@@ -226,9 +226,9 @@ pub async fn upload_image_cheverto(
         let image_url = Url::parse(&image).unwrap();
         upload_remote_image_chevereto(&upload_url, &image_url).await
     } else {
-        let mut current_dir: PathBuf = env::current_dir().expect("can not get current directory.");
-        current_dir.push(&image);
-        let image_path = Path::new(image);
+        let mut image_absolute_path: PathBuf = env::current_dir().expect("can not get current directory.");
+        image_absolute_path.push(&image);
+        let image_path = Path::new(image_absolute_path.as_path());
         upload_local_image_chevereto(&upload_url, &image_path).await
     }
 }
