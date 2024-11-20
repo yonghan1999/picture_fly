@@ -13,24 +13,28 @@ use tokio::sync::RwLock;
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 struct Cli {
+    /// suppress error messages.
     #[arg(
         short,
         long,
-        value_name = "suppress error messages.",
         default_value_t = false
     )]
     force: bool,
+    
+    /// print the successfully uploaded files.
     #[arg(
         short,
         long,
-        value_name = "print the successfully uploaded files.",
         default_value_t = true
     )]
     print: bool,
+    
     /// chevereto api key
     key: String,
+    
     /// your chevereto upload url e.g. https://images.hanblog.fun/api/1/upload/
     url: String,
+    
     /// image file path. e.g. https://image.hanblog.fun/images/2024/11/20/test.jpg OR local file path.
     files: Vec<String>,
 }
