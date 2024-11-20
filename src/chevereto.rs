@@ -3,7 +3,6 @@ use crate::error::UploadError;
 use reqwest::{multipart, Client, Error, Response};
 use serde_derive::Deserialize;
 use serde_derive::Serialize;
-use serde_json::Value;
 use std::env;
 use std::path::{Path, PathBuf};
 use url::Url;
